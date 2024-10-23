@@ -25,10 +25,7 @@ bind -f common tab win-next
 bind -f common enter win-activate
 
 # Devices
-set output_plugin=alsa
-set dsp.alsa.device=default
-set mixer.alsa.device=default
-set mixer.alsa.channel=Master
+set output_plugin=pulse
 
 # Theme
 set color_win_fg=7
