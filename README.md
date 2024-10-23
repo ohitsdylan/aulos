@@ -1,6 +1,10 @@
 # aulos
 An automotive media interface.
 
+# ⚠️ Very much a work in progress!
+### This has not been extensively tested and many things probably don't work.
+<br><br>
+
 Audio playback is handled by [cmus](https://github.com/cmus/cmus) and it features a clock via [tock](https://github.com/nwtnni/tock) and a visualizer by [vis (cli-visualizer)](https://github.com/dpayne/cli-visualizer), wrapped up and served to your Raspberry Pi via [buildroot](http://buildroot.org/).
 
 Intended to be run on a Euro-spec 2017 Ford Focus, but can probably be adapted to work with other makes and models.
