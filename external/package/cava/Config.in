@@ -1,0 +1,7 @@
+config BR2_PACKAGE_CAVA
+	bool "cava"
+	help
+	  Cava is a bar spectrum audio visualizer for
+	  terminal (ncurses) or desktop (SDL).
+
+	  https://github.com/karlstav/cava/

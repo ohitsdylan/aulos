@@ -1,0 +1,9 @@
+config BR2_PACKAGE_TOCK
+	bool "tock"
+	depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
+	select BR2_PACKAGE_NCURSES
+	select BR2_PACKAGE_HOST_RUSTC
+	help
+	  A digital clock for the terminal, inspired by tty-clock 
+
+	  https://github.com/nwtnni/tock

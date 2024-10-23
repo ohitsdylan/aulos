@@ -1,0 +1,7 @@
+config BR2_PACKAGE_TTY-CLOCK
+	bool "tty-clock"
+	select BR2_PACKAGE_NCURSES
+	help
+	  Clock using lib ncurses 
+
+	  https://github.com/xorg62/tty-clock

@@ -1,0 +1,206 @@
+################################################################################
+#
+# cmus
+#
+################################################################################
+
+CMUS_VERSION = 2.11.0
+CMUS_SITE = $(call github,cmus,cmus,v$(CMUS_VERSION))
+CMUS_LICENSE = GPL-2.0
+CMUS_LICENSE_FILES = COPYING
+CMUS_DEPENDENCIES = host-pkgconf ncurses \
+	$(if $(BR2_PACKAGE_FDK_AAC),fdk-aac) \
+	$(if $(BR2_PACKAGE_ALSA_UTILS),alsa-utils) \
+	$(if $(BR2_PACKAGE_LIBAO),libao) \
+	$(if $(BR2_PACKAGE_LIBCDIO),libcdio) \
+	$(if $(BR2_PACKAGE_LIBCUE),libcue) \
+	$(if $(BR2_PACKAGE_FFMPEG),ffmpeg) \
+	$(if $(BR2_PACKAGE_FLAC),flac) \
+	$(if $(BR2_PACKAGE_JACK2),jack2) \
+	$(if $(BR2_PACKAGE_LIBMAD),libmad) \
+	$(if $(BR2_PACKAGE_LIBMODPLUG),libmodplug) \
+	$(if $(BR2_PACKAGE_MP4V2),mp4v2) \
+	$(if $(BR2_PACKAGE_MPC),mpc) \
+	$(if $(BR2_PACKAGE_OPUS),opus) \
+	$(if $(BR2_PACKAGE_PULSEAUDIO),pulseaudio) \
+	$(if $(BR2_PACKAGE_LIBSAMPLERATE),libsamplerate) \
+	$(if $(BR2_PACKAGE_LIBVORBIS),libvorbis) \
+	$(if $(BR2_PACKAGE_WAVPACK),wavpack)
+	
+ifeq ($(BR2_PACKAGE_FDK_AAC),y)
+CMUS_CONFIGURE_OPTS += CONFIG_AAC=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_AAC=n
+endif
+
+ifeq ($(BR2_PACKAGE_ALSA_UTILS),y)
+CMUS_CONFIGURE_OPTS += CONFIG_ALSA=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_ALSA=n
+endif
+
+ifeq ($(BR2_PACKAGE_LIBAO),y)
+CMUS_CONFIGURE_OPTS += CONFIG_AO=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_AO=n
+endif
+
+# Unavailable
+CMUS_CONFIGURE_OPTS += CONFIG_ARTS=n
+#
+
+ifeq ($(BR2_PACKAGE_LIBCDIO),y)
+CMUS_CONFIGURE_OPTS += CONFIG_CDIO=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_CDIO=n
+endif
+
+# Unavailable
+CMUS_CONFIGURE_OPTS += CONFIG_COREAUDIO=n
+#
+
+ifeq ($(BR2_PACKAGE_LIBCUE),y)
+CMUS_CONFIGURE_OPTS += CONFIG_CUE=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_CUE=n
+endif
+
+ifeq ($(BR2_PACKAGE_FFMPEG),y)
+CMUS_CONFIGURE_OPTS += CONFIG_FFMPEG=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_FFMPEG=n
+endif
+
+ifeq ($(BR2_PACKAGE_FLAC),y)
+CMUS_CONFIGURE_OPTS += CONFIG_FLAC=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_FLAC=n
+endif
+
+ifeq ($(BR2_PACKAGE_JACK2),y)
+CMUS_CONFIGURE_OPTS += CONFIG_JACK=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_JACK=n
+endif
+
+ifeq ($(BR2_PACKAGE_LIBMAD),y)
+CMUS_CONFIGURE_OPTS += CONFIG_MAD=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_MAD=n
+endif
+
+# Unavailable
+CMUS_CONFIGURE_OPTS += CONFIG_MIKMOD=n
+#
+
+ifeq ($(BR2_PACKAGE_LIBMODPLUG),y)
+CMUS_CONFIGURE_OPTS += CONFIG_MODPLUG=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_MODPLUG=n
+endif
+
+ifeq ($(BR2_PACKAGE_MP4V2),y)
+CMUS_CONFIGURE_OPTS += CONFIG_MP4=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_MP4=n
+endif
+
+ifeq ($(BR2_PACKAGE_MPC),y)
+CMUS_CONFIGURE_OPTS += CONFIG_MPC=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_MPC=n
+endif
+
+# Unavailable
+CMUS_CONFIGURE_OPTS += CONFIG_MPRIS=n
+#
+
+ifeq ($(BR2_PACKAGE_OPUS),y)
+CMUS_CONFIGURE_OPTS += CONFIG_OPUS=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_OPUS=n
+endif
+
+# Unavailable
+CMUS_CONFIGURE_OPTS += CONFIG_OSS=n
+#
+
+ifeq ($(BR2_PACKAGE_PULSEAUDIO),y)
+CMUS_CONFIGURE_OPTS += CONFIG_PULSE=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_PULSE=n
+endif
+
+# Unavailable
+CMUS_CONFIGURE_OPTS += CONFIG_ROAR=n
+#
+
+ifeq ($(BR2_PACKAGE_LIBSAMPLERATE),y)
+CMUS_CONFIGURE_OPTS += CONFIG_SAMPLERATE=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_SAMPLERATE=n
+endif
+
+# Unavailable
+CMUS_CONFIGURE_OPTS += CONFIG_SNDIO=n
+#
+
+# Unavailable
+CMUS_CONFIGURE_OPTS += CONFIG_SUN=n
+#
+
+ifeq ($(BR2_PACKAGE_LIBVORBIS),y)
+CMUS_CONFIGURE_OPTS += CONFIG_VORBIS=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_VORBIS=n
+endif
+
+# Unavailable
+CMUS_CONFIGURE_OPTS += CONFIG_VTX=n
+#
+
+# Unavailable?
+CMUS_CONFIGURE_OPTS += CONFIG_WAV=n
+#
+
+# Unavailable
+CMUS_CONFIGURE_OPTS += CONFIG_WAVEOUT=n
+#
+
+ifeq ($(BR2_PACKAGE_WAVPACK),y)
+CMUS_CONFIGURE_OPTS += CONFIG_WAVPACK=y
+else
+CMUS_CONFIGURE_OPTS += CONFIG_WAVPACK=n
+endif
+
+# Unavailable
+CMUS_CONFIGURE_OPTS += CONFIG_BASS=n
+#
+
+CMUS_CONFIGURE_OPTS += CFLAGS="$(TARGET_CFLAGS) -D_FORTIFY_SOURCE=0 -fno-stack-protector"
+CMUS_CONFIGURE_OPTS += LD="$(BASE_DIR)/host/bin/aarch64-buildroot-linux-gnu-gcc"
+CMUS_CONFIGURE_OPTS += HOSTLD="/usr/bin/gcc"
+
+define CMUS_CONFIGURE_CMDS
+	(cd $(@D); \
+	$(TARGET_CONFIGURE_OPTS) \
+	$(TARGET_CONFIGURE_ARGS) \
+	./configure $(CMUS_CONFIGURE_OPTS))
+endef
+
+define CMUS_BUILD_CMDS
+	$(TARGET_MAKE_ENV) \
+	$(TARGET_CONFIGURE_OPTS) \
+	$(TARGET_CONFIGURE_ARGS) \
+	$(MAKE) -C $(@D) all
+endef
+
+define CMUS_INSTALL_TARGET_CMDS
+	$(TARGET_MAKE_ENV) \
+	$(TARGET_CONFIGURE_OPTS) \
+	$(TARGET_CONFIGURE_ARGS) \
+	$(MAKE) -C $(@D) install \
+	DESTDIR="$(TARGET_DIR)"
+endef
+
+$(eval $(generic-package))

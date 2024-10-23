@@ -1,0 +1,9 @@
+config BR2_PACKAGE_CLI_VISUALIZER
+	bool "cli-visualizer"
+	select BR2_PACKAGE_FFTW_SINGLE
+	select BR2_PACKAGE_NCURSES
+	help
+	  Command line visualizer. Supports mpd, with experimental 
+	  support for alsa and pulseaudio.
+
+	  https://github.com/dpayne/cli-visualizer

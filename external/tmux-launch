@@ -1,0 +1,16 @@
+set -g visual-activity off
+set -g visual-bell off
+set -g visual-silence off
+setw -g monitor-activity off
+set -g bell-action none
+
+tmux new-session -naulos \; \
+    split-window -h -p 33 \; \
+    split-window -v \; \
+    select-pane -t 0 \; \
+    send-keys 'cmus' C-m \; \
+    select-pane -t 1 \; \
+    send-keys 'tock -c -f "%A, %B %d, %Y" -m' C-m \; \
+    select-pane -t 2 \; \
+    send-keys 'vis -c /path/to/config' C-m \; \
+    select-pane -t 0 \;

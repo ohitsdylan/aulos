@@ -1,0 +1,6 @@
+source "$BR2_EXTERNAL_AULOS_PATH/package/cava/Config.in"
+source "$BR2_EXTERNAL_AULOS_PATH/package/cli-visualizer/Config.in"
+source "$BR2_EXTERNAL_AULOS_PATH/package/cmus/Config.in"
+source "$BR2_EXTERNAL_AULOS_PATH/package/libiniparser/Config.in"
+source "$BR2_EXTERNAL_AULOS_PATH/package/tock/Config.in"
+source "$BR2_EXTERNAL_AULOS_PATH/package/tty-clock/Config.in"

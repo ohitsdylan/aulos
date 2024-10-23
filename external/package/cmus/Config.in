@@ -1,0 +1,8 @@
+config BR2_PACKAGE_CMUS
+	bool "cmus"
+	select BR2_PACKAGE_NCURSES
+	help
+	  Small, fast and powerful console music player for 
+	  Unix-like operating systems. 
+
+	  https://cmus.github.io/

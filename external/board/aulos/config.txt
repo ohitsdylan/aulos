@@ -1,0 +1,25 @@
+# ======== #
+# aulos v3 #
+# ======== #
+
+start_file=start4.elf
+fixup_file=fixup4.dat
+kernel=Image
+
+# Config Settings
+max_framebuffers=2
+
+arm_64bit=1
+arm_boost=1
+
+disable_splash=1
+disable_poe_fan=1
+
+# Enable overlay for HiFiBerry DAC2 HD board
+dtoverlay=hifiberry-dacplushd
+dtoverlay=vc4-kms-v3d,noaudio
+disable_fw_kms_setup=1
+
+# Disable compensation for displays with overscan
+disable_overscan=1
+

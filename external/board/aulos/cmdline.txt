@@ -1,0 +1,1 @@
+root=/dev/mmcblk0p2 rootwait console=tty5 net.ifnames=0 quiet splash

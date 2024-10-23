@@ -1,0 +1,67 @@
+# cmus configuration file
+# =======================
+
+# Playback
+bind -f common > player-next
+bind -f common space player-pause
+bind -f common < player-prev
+
+bind -f common + vol +5%
+bind -f common - vol -5%
+
+bind -f common [ seek -10
+bind -f common ] seek +10
+
+bind -f common s toggle shuffle
+set follow=true
+
+# Navigation
+bind -f common 1 view tree
+bind -f common 7 view settings
+
+bind -f common up win-up
+bind -f common down win-down
+bind -f common tab win-next
+bind -f common enter win-activate
+
+# Devices
+set output_plugin=alsa
+set dsp.alsa.device=default
+set mixer.alsa.device=default
+set mixer.alsa.channel=Master
+
+# Theme
+set color_win_fg=7
+set color_win_bg=0
+
+set color_win_title_bg=0
+set color_win_title_fg=7
+
+set color_separator=7
+
+set color_titleline_bg=0
+set color_titleline_fg=7
+set color_statusline_bg=7
+set color_statusline_fg=0
+
+set color_cmdline_fg=7
+set color_cmdline_bg=0
+set color_error=7
+set color_info=7
+
+set color_win_cur=7
+
+set color_win_cur_sel_bg=7
+set color_win_cur_sel_fg=0
+set color_win_inactive_cur_sel_bg=0
+set color_win_inactive_cur_sel_fg=7
+
+set color_win_sel_bg=7
+set color_win_sel_fg=0
+set color_win_inactive_sel_bg=0
+set color_win_inactive_sel_fg=7
+
+set color_trackwin_album_bg=7
+set color_trackwin_album_fg=0
+
+set color_win_dir=7
