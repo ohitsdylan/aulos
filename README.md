@@ -59,7 +59,6 @@ There is _no_ network stack and the kernel has been stripped of things considere
     - Or maybe toggle the "mount read-write" setting in buildroot
 - Add photos and screenshots
 - Configure RTC clock
-- Create a metapackage to copy over music files and then generate a new lib.pl file for cmus
 - Create a fakeroot script to modify some directory permissions
 - See if autologin script works for aulos user
 - Setup psplash
