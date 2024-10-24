@@ -1,1 +1,4 @@
 buildroot/
+external/board/aulos/overlay/home/aulos/.config/cmus/lib.pl
+external/board/aulos/overlay/home/aulos/music/
+!external/board/aulos/overlay/home/aulos/music/.music-goes-here
