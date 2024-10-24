@@ -15,6 +15,7 @@ Intended to be run on a Euro-spec 2017 Ford Focus, but can probably be adapted t
 - `controller.ino` : Arduino code to translate CANBUS messages to key presses
 - `README.md` : This file
 - `setup.sh` : A script that stages the buildroot environment
+- `update-library.sh` : A script that copies new music to aulos and builds the library playlist file for cmus
 
 ### Prerequisites & Notes
 This system is intended to be run in an automotive environment, and so the primary needs were determined to be:
